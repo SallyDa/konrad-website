@@ -11,6 +11,21 @@ body {
     margin: auto;
 }
 
+h1 {
+    font-weight: light;
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-weight: light;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-weight: regular;
+    letter-spacing: 0px;
+}
+
 .abstract {
     font-weight: bold;
 }
