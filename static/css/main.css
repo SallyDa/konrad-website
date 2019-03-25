@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto:light,regular,bold);
 
 html {
   padding-left: 15pt;
@@ -9,6 +9,10 @@ body {
     font-family: 'Roboto', sans-serif;
     max-width: 1200px;
     margin: auto;
+}
+
+.abstract {
+    font-weight: bold;
 }
 
 a {
