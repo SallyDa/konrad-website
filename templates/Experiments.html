@@ -9,44 +9,35 @@
     <h1>Experiments</h1>
     <div><img src="{{ url_for('static', filename='experiment.png') }}" align="left"
          alt="This sentence should be an experiment."
-         style="width:223px;height:362px;">
-    </div><div>
-        <font size=5>
-            <a href=" {{ url_for('convection_exp') }} ">No convection</a>
-        </font>
-        <font size=4>
-            <p>What happens if we turn off convection and only have radiation?
-            </p>
-        </font>
+         style="width:297px;height:481px;" hspace="20">
+    </div>
+    <div class="abstract">
+        <a href=" {{ url_for('convection_exp') }} ">No convection</a>
+    </div>
+    <div>What happens if we turn off convection and only have radiation?
+    </div><br />
+    <div class="abstract">
+        <a href=" {{ url_for('ozone_exp') }} ">No ozone</a>
+    </div>
+    <div>Ozone absorbs lots of radiation from the Sun. How cold
+            would the stratosphere be without it?
+    </div><br />
+    <div class="abstract">
+        <a href=" {{ url_for('co2_exp') }} ">Increase CO<sub>2</sub></a>
     </div>
     <div>
-        <font size=5>
-            <a href=" {{ url_for('ozone_exp') }} ">No ozone</a>
-        </font>
-        <font size=4>
-            <p>Ozone absorbs lots of radiation from the Sun. How cold
-            would the stratosphere be without it?</p>
-        </font>
+        How does increasing CO<sub>2</sub> affect the atmospheric temperature
+        profile?
     </div>
+    <br />
+    <div class="abstract">
+        <a href=" {{ url_for('sun_exp') }} ">Weak Sun</a>
+        </div>
     <div>
-        <font size=5>
-            <a href=" {{ url_for('co2_exp') }} ">Increase CO<sub>2</sub></a>
-        </font>
-        <font size=4>
-            <p>How does increasing CO<sub>2</sub> affect the atmospheric
-            temperature profile?</p>
-        </font>
-    </div>
-    <div>
-        <font size=5>
-            <a href=" {{ url_for('sun_exp') }} ">Weak Sun</a>
-        </font>
-        <font size=4>
-            <p>What happens if we turn the Sun down?</p>
-        </font>
+        What happens if we turn the Sun down?
     </div><br />
     <h2>Model Output</h2>
-    <div><font size="4">
+    <div>
         For each experiment, there is a choice of model output.
         The temperature is the new equilibrium temperature of the atmosphere,
         and it sometimes takes thousands of model years to reach this state.
@@ -70,7 +61,6 @@
         The convective heating rate describes how quickly these temperature
         changes occur." tabindex="-1">convective heating rate</abbr>.
         In equilibrium, the three heating rates should balance.
-    </font>
     </div>
 </body>
 </html>
