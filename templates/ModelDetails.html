@@ -6,6 +6,40 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
+    <h1>Model parts</h1>
+    <div>Konrad is split into several model components, each of which
+        has a specific purpose and all of which work together.
+        <ul type="disk">
+            <li><strong>atmosphere</strong> &mdash; contains different gasses
+                and the temperature profile</li>
+            <li><strong>surface</strong> &mdash; with a
+                <abbr title="The surface temperature determines how much
+                radiation the surface emits." tabindex="-1">temperature</abbr>,
+                <abbr title="The surface reflectivity tells the radiation scheme
+                how much radiation the surface reflects."
+                      tabindex="=1">reflectivity</abbr> and
+                <abbr title="The heat capacity determines how quickly the
+                surface warms or cools." tabindex="-1">heat capacity</abbr>
+            </li>
+            <li><strong>radiative transfer scheme</strong>
+                <br /> &emsp; &mdash; needs information about sunlight, the
+                surface and the atmosphere
+                <br /> &emsp; &mdash; calculates how much radiation is
+                reflected, scattered, absorbed, emitted and transmitted by the
+                atmosphere and surface
+            </li>
+            <li><strong>convective adjustment</strong> &mdash; prevents
+                atmospheric temperature decreasing too quickly with height</li>
+            <li><strong>lapse rate</strong> &mdash; tells the convective
+                adjustment how quickly temperatures should decrease with
+                height</li>
+            <li><strong>humidity model</strong> &mdash; tells the atmosphere
+                how much water vapour it contains</li>
+        </ul>
+        The different components are put together in the model core, which
+        keeps track of time in the model.
+    </div>
+
     <h1>How the model runs</h1>
     <img src="{{ url_for('static', filename='model-flow.png') }}" align="left"
          alt="This sentence should be a diagram of the model flow."
