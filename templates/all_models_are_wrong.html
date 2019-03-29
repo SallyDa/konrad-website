@@ -42,18 +42,40 @@
         the temperature profile and under these conditions the radiation scheme
         has large errors.
     </div><br /><div>
-        Konrad models the
+        Konrad only models the
         <abbr title="near the equator" tabindex="-1">tropical</abbr>
         atmosphere and does not include heat transport from the tropics to mid
         or high
         <abbr title="Latitude is an angle describing closeness to the equator.
         The tropics are at low latitudes, and the polar regions are at high
         latitudes." tabindex="-1">latitudes</abbr>.
-        Instead, so that the atmosphere in the model does not get too hot, we
+        Instead, so that the atmosphere in konrad does not get too hot, we
         reduce the amount of incoming solar radiation.
         In this way, we assume that all the heat transport occurs in the
         atmosphere, while in reality some of the heat is transported by ocean
         currents.
+    </div>
+    <br />
+    <div>
+        Konrad contains information about the amounts of different gasses
+        contained in the atmosphere.
+        The three most important gases seen by the radiation are water vapour,
+        CO<sub>2</sub> and ozone.
+        CO<sub>2</sub> is well-mixed, which means that the concentration is
+        almost constant throughout the whole atmosphere.
+        The concentration of CO<sub>2</sub> is well-known, because it is
+        measured throughout the world.
+        The ozone profile is also well-known, so the assumptions about
+        CO<sub>2</sub> and ozone are good.
+        On the other hand, water vapour amounts vary throughout the
+        <abbr title="the area near the equator" tabindex="-1">tropics</abbr> and
+        with the time of day, as water at the surface
+        <abbr title="changes from liquid to gas" tabindex="-1">evaporates</abbr>
+        and water vapour in the atmosphere
+        <abbr title="changes from gas to liquid" tabindex="-1">condenses</abbr>
+        and it rains.
+        These processes are not included in konrad, where we assume that one
+        profile of water vapour represents the whole of the tropics.
     </div>
     <br />
     <div>
