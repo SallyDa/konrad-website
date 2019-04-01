@@ -24,12 +24,24 @@
             <li><strong>radiative transfer scheme</strong>
                 <br /> &emsp; &mdash; needs information about sunlight, the
                 surface and the atmosphere
-                <br /> &emsp; &mdash; calculates how much radiation is
-                reflected, scattered, absorbed, emitted and transmitted by the
+                <br /> &emsp; &mdash; calculates how much
+                <abbr title="In climate science, shortwave radiation refers to
+                the radiation coming from the Sun, a lot of which is
+                ultra-violet and visible light." tabindex="-1">shortwave
+                    radiation</abbr>
+                is reflected, scattered, absorbed and transmitted by the
                 atmosphere and surface
+                <br /> &emsp; &mdash; calculates how much
+                <abbr title="In climate science, longwave radiation describes
+                the radiation emitted from the surface and the atmosphere, a
+                lot of which is infrared." tabindex="-1">longwave
+                    radiation</abbr>
+                is emitted by the surface and atmosphere and how much of this is
+                absorbed or transmitted as it makes its way upwards to space
             </li>
             <li><strong>convective adjustment</strong> &mdash; prevents
-                atmospheric temperature decreasing too quickly with height</li>
+                atmospheric temperatures decreasing unrealistically quickly with
+                height</li>
             <li><strong>lapse rate</strong> &mdash; tells the convective
                 adjustment how quickly temperatures should decrease with
                 height</li>
@@ -43,34 +55,24 @@
     <h1>How the model runs</h1>
     <img src="{{ url_for('static', filename='model-flow.png') }}" align="left"
          alt="This sentence should be a diagram of the model flow."
-         style="width:272px;height:657px;">
+         style="width:184px;height:438px;">
     <div>
-        For a certain set of
-        <abbr title="data that is fed to the model" tabindex="-1">input
-            parameters</abbr>
-        (the amounts of various gases, an initial temperature profile, surface
-        properties, the amount of incoming solar radiation), we use a
-        <abbr title="A radiative transfer scheme is a model that calculates how
-        much of the incoming radiation is reflected, absorbed, scattered and
-        transmitted by the model's atmosphere.
-	    It also calculates how much radiation is emitted by the surface and
-	    atmosphere and how much of this is absorbed or transmitted as it makes
-	    its way upwards to space."
-              tabindex="-1">radiative transfer scheme</abbr>
-        to calculate
+        We start with an initial atmosphere and surface and specify their
+        properties, including their temperatures.
+        We also specify the amount of incoming
+        <abbr title="sunlight" tabindex="-1">solar radiation</abbr>.
+        These are used as input to the radiative transfer model, from which we
+        calculate
         <abbr title="As molecules absorb radiation, they gain energy and the
         atmosphere warms. On the other hand, if the molecules emit radiation,
         they lose energy and the atmosphere cools. The heating rate describes
         how quickly the atmosphere warms or cools." tabindex="-1">radiative
             heating rates</abbr>.
-        We add the change in temperature to the input temperature profile,
-        producing a new temperature profile.
-        If the new temperature profile is
-        <abbr title="A temperature profile is unstable to convection if the
-        temperature of the surface or lowest layers of the atmosphere is much
-        larger than the temperatures above. When this happens in the real
-        atmosphere, the warm air below rises over the cold dense air above."
-              tabindex="-1">unstable to convection</abbr>, a
+        We multiply the heating rates by the
+        <abbr title="a small amount of time" tabindex="-1">model timestep</abbr>
+        and add these to the temperature profile of the atmosphere and the
+        temperature of the surface.
+        If the new temperature profile decreases too quickly with height, a
         <abbr title="In konrad, we do not have motion of air. Instead our
         convective adjustment just changes the temperature of the surface and
         atmosphere. The temperature change we apply is similar to that which
@@ -79,19 +81,33 @@
         is applied in the
         <abbr title="the lowest part of the atmosphere, where temperature
         decreases with height" tabindex="-1">troposphere</abbr>.
-        This changes the temperature profile again, giving us another new
-        temperature profile.
-        Then we calculate changes in other atmospheric properties, such as
-        the water vapour concentration, which depends on the temperature.
-        The new set of parameters is used as input to the radiative
+        This changes the temperatures of the atmosphere and surface again.
+        Then, we use the humidity model to update the amount of water vapour
+        stored in the atmosphere,
+        which depends on the atmospheric temperature profile.
+        The updated atmosphere and surface are used as input to the radiative
         transfer scheme and the whole process is repeated many times.
         Eventually, the
         <abbr title="the change due to radiation plus the change due to
-        convection" tabindex="-1">total change</abbr> to the temperature
-        profile becomes very small, and we say that the system has reached
+        convection" tabindex="-1">change in temperature</abbr>
+        becomes very small, and we say that the system has reached
         equilibrium.
-    </div>
-    <br />
+    </div><br />
+    <div>
+        In konrad, the equilibrium temperature profile does not depend on the
+        initial temperature of the atmosphere or surface.
+        If we start with a hot atmosphere, it emits lots of
+        <abbr title="mostly infrared" tabindex="-1">longwave radiation</abbr>
+        and cools.
+        On the other hand if we start with a cold atmosphere, it emits very
+        little longwave radiation, but it still absorbs
+        <abbr title="from the Sun" tabindex="-1">shortwave radiation </abbr>,
+        so it warms.
+        Both scenarios eventually reach the same temperature profile, where
+        cooling by longwave radiation balances warming by shortwave radiation
+        and convection.
+    </div><br />
+    <h2>Language and availability</h2>
     <div>
         Konrad is written in
             <a href='https://www.python.org/' target='_blank'>python</a>
@@ -114,6 +130,6 @@
         <a href=" {{ url_for('experiments') }} ">Start using konrad</a>
     </div><br /><div>
         <a href=" {{ url_for('about_us') }} ">About the developers</a>
-    </div>
+    </div><br />
 </body>
 </html>
