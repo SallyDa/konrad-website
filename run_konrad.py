@@ -22,7 +22,7 @@ def get_data(exp, output):
         xunits = 'K'
         if output == 'T_C':
             T -= 273.15
-            xunits = 'Celcius'
+            xunits = 'Celsius'
     elif output == 'radlw':
         T = ds['radlw'][exp_index, :]
         xlabel = 'Longwave heating'
